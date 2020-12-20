@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}User{% endblock %}
+
+{% block navbar %}
+<li class="nav-item">
+  <a class="nav-link" href="/people">Find Friends</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="/friends">Friends</a>
+</li>
+<li class="nav-item active">
+  <a class="nav-link" href="/user">Profile</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="/logout">Log Out</a>
+</li>
+{% endblock %}
+{% block content %}
+<h1>Welcome, {{ user.username }}!</h1>
+{% endblock %}

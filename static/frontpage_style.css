@@ -1,0 +1,26 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(backgrounds/profilebg.jpg);
+    background-color: rgba(0, 0, 0, 0.7);
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+}
+.header-area h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    font-size: 4.5em;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+}
+.header-area h2 span {
+    color: chartreuse;
+}

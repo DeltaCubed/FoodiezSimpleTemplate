@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}People{% endblock %}
+
+{% block navbar %}
+<link rel="stylesheet" href="{{ url_for('static', filename='friend_styles.css') }}">
+<li class="nav-item active">
+  <a class="nav-link" href="/people">Find Friends</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="/friends">Friends</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="/user">Profile</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="/logout">Log Out</a>
+</li>
+{% endblock %}
+{% block content %}
+<h1 style="text-align: center;">People</h1>
+
+{% if people|length < 1 %}
+<h2>You Have No Friends. Add more at the <a href='/people'>Find Friends</a> tab</h2>
+{% else %}
+<table>
+  <tr>
+    <th>Friends:</th>
+    <th>Actions:</th>
+  </tr>
+  {% for friend in people %}
+
+  {% if cur_name == friend.username %}
+  <tr>
+    <td><a href="/view/{{ friend.username }}">{{ friend.username }}</a></td>
+    <td>
+      <a href="/user">Your Profile</a></a>
+    </td>
+  </tr>
+  {% elif friend.username in curr_friends %}
+  <tr>
+    <td><a href="/view/{{ friend.username }}">{{ friend.username }}</a></td>
+    <td>
+      <a href="/remove/{{ friend.username }}">Remove Friend</a></a>
+      <br />
+      <a href="">Report User</a>
+    </td>
+  </tr>
+  {% else %}
+  <tr>
+    <td><a href="/view/{{ friend.username }}">{{ friend.username }}</a></td>
+    <td>
+      <a href="/add/{{ friend.username }}">Add as Friend</a>
+      <br />
+      <a href="">Report User</a>
+    </td>
+  </tr>
+  {% endif %}
+  {% endfor %}
+</table>
+{% endif %}
+{% endblock %}
